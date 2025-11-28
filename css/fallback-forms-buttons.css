@@ -1,0 +1,119 @@
+/*! Fallback v0.1 - Copyright 2025 Phil Brown (https://github.com/pmbrown/Fallback-CSS/blob/main/LICENSE) */
+:where(button, input, optgroup, select, textarea),
+.btn {
+  font-family: inherit;
+  line-height: inherit;
+  &:focus {
+    outline: 1.5px solid var(--outline, color-mix(in srgb, CanvasText 50%, Canvas));
+    outline-offset: 0;
+  }
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+:where(button, optgroup, select, [type=button], [type=submit], [type=reset], [type=color]),
+::file-selector-button {
+  cursor: pointer;
+}
+
+:where(button, input, optgroup, select, textarea):disabled,
+:where([aria-disabled=true]) {
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+:where(optgroup, select, textarea, input:not([type=button], [type=submit], [type=reset])) {
+  color: var(--form-txt, revert);
+  font-size: var(--form-fs, inherit);
+  padding-block: var(--form-py, 0.313rem);
+  padding-inline: var(--form-px, 0.65rem);
+  border: 1px solid var(--form-bd, color-mix(in srgb, CanvasText 20%, Canvas));
+  border-radius: var(--form-radius, 0.188em);
+  background-color: var(--form-bg, Canvas);
+}
+
+:where(button, [type=button], [type=submit], [type=reset]),
+::file-selector-button,
+.btn {
+  color: var(--btn-txt, revert);
+  font-size: var(--btn-fs, inherit);
+  padding-block: var(--btn-py, 0.313rem);
+  padding-inline: var(--btn-px, 0.9rem);
+  border: 1px solid var(--btn-bd, color-mix(in srgb, CanvasText 20%, Canvas));
+  border-radius: var(--btn-radius, 0.188em);
+  background-color: var(--btn-bg, color-mix(in srgb, CanvasText 4%, Canvas));
+  -webkit-appearance: button;
+  &:is(:hover, :focus),
+  &:focus:not(:focus-visible):hover {
+    background-color: var(--btn-hover, color-mix(in srgb, CanvasText 8%, Canvas));
+  }
+  &:focus:not(:focus-visible) {
+    background-color: var(--btn-bg, color-mix(in srgb, CanvasText 4%, Canvas));
+  }
+}
+
+.btn {
+  color: var(--btn-txt, CanvasText);
+  text-align: center;
+  text-decoration: none;
+}
+
+:where([type=file]) {
+  padding: 0;
+  background-color: transparent;
+}
+
+::file-selector-button {
+  font-family: inherit;
+  line-height: inherit;
+  margin-inline-end: 0.75rem;
+  border-block: none;
+  border-inline-start: none;
+  border-start-end-radius: 0;
+  border-end-end-radius: 0;
+}
+
+::file-selector-button:hover {
+  background-color: var(--btn-hover, color-mix(in srgb, CanvasText 8%, Canvas));
+}
+
+:where(textarea) {
+  display: block;
+  resize: vertical;
+}
+
+:where([type=radio], [type=checkbox], [type=range], [progress]) {
+  accent-color: var(--btn-accent, light-dark(#1c3db5, #9fbfdf));
+}
+
+:where(fieldset, legend) {
+  border: 1px solid var(--btn-bd, color-mix(in srgb, CanvasText 20%, Canvas));
+  border-radius: 0.188rem;
+}
+
+:where(fieldset) {
+  inline-size: fit-content;
+}
+
+:where(legend) {
+  padding-block: var(--form-py, 0.313rem);
+  padding-inline: var(--form-px, 0.65rem);
+}
+
+:where([type=color]) {
+  padding: 0;
+}
+
+:where(input[type=color])::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+:where(input[type=color i])::-webkit-color-swatch {
+  border: none;
+}
+
+:where(input):autofill,
+:where(input):-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1.5rem color-mix(in srgb, CanvasText 2%, Canvas) inset;
+}

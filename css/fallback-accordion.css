@@ -1,0 +1,25 @@
+/*! Fallback v0.1 - Copyright 2025 Phil Brown (https://github.com/pmbrown/Fallback-CSS/blob/main/LICENSE) */
+.accordion {
+  color: var(--accordion-txt, CanvasText);
+  margin-block-end: var(--accordion-mb, 1rem);
+  border: 1px solid var(--accordion-bd, color-mix(in srgb, CanvasText 20%, Canvas));
+  border-radius: var(--accordion-radius, 0.188rem);
+  background-color: var(--accordion-bg, Canvas);
+  details {
+    margin-block-end: 0;
+    :is([open] summary) {
+      margin-block-end: 0;
+      border-block-end: 1px solid var(--accordion-bd, color-mix(in srgb, CanvasText 20%, Canvas));
+    }
+    :last-child {
+      margin-block-end: 0;
+    }
+  }
+  :not(:first-child) summary {
+    border-block-start: 1px solid var(--accordion-bd, color-mix(in srgb, CanvasText 20%, Canvas));
+  }
+  summary, [open]::details-content {
+    padding-block: var(--accordion-py, 0.5rem);
+    padding-inline: var(--accordion-px, 1rem);
+  }
+}

@@ -1,0 +1,40 @@
+/*! Fallback v0.1 - Copyright 2025 Phil Brown (https://github.com/pmbrown/Fallback-CSS/blob/main/LICENSE) */
+.card, .card-link {
+  color: var(--card-text, CanvasText);
+  max-inline-size: var(--card-width);
+  padding-block: var(--card-py, 1rem);
+  padding-inline: var(--card-px, 1rem);
+  border: 1px solid var(--card-bd-color, color-mix(in srgb, CanvasText 20%, Canvas));
+  border-radius: var(--card-radius, 0.188rem);
+  background-color: var(--card-bg, Canvas);
+  :is(p, ol, ul, dl) {
+    margin-block-end: var(--card-text-mb, 0.5rem);
+  }
+  :is(:last-child) {
+    margin-block-end: 0;
+  }
+  img {
+    margin-block-end: calc(var(--card-text-mb, 0.5rem) + 0.25rem);
+  }
+}
+
+.card-link {
+  position: relative;
+  a:after {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+  }
+  a:focus-visible {
+    outline: none;
+  }
+  &:is(:focus-within, :hover) {
+    color: var(--card-text-hover, CanvasText);
+    background-color: var(--card-hover, color-mix(in srgb, CanvasText 4%, Canvas));
+    cursor: pointer;
+  }
+  &:focus-within {
+    outline: var(--card-focus, 0.188rem) solid var(--card-focus-color, color-mix(in srgb, CanvasText 20%, Canvas));
+  }
+}
